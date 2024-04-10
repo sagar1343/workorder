@@ -1,6 +1,7 @@
 import { BiPlus, BiMinus } from 'react-icons/bi';
 import { useState } from 'react';
-import { Tr, Td, Checkbox, Box, Button, Collapse } from '@chakra-ui/react';
+import { Tr, Td, Checkbox, Box, Collapse } from '@chakra-ui/react';
+import SubAccordion from './SubAccordion';
 const TableCollapse = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,26 +17,24 @@ const TableCollapse = () => {
         <Td>567.80</Td>
         <Td isNumeric>₹ 2986792</Td>
         <Td>
-          <Button
-            color='green'
+          <Box
+            color='cyan'
             onClick={handleToggle}
           >
             {isOpen ? <BiMinus /> : <BiPlus />}
-          </Button>
+          </Box>
         </Td>
       </Tr>
-      {isOpen && (
+      <Collapse in={isOpen}>
         <Tr>
-          <Td colSpan={4}>
-            <Collapse in={isOpen}>
-              <Box>
-                Some placeholder content for the collapse component. This panel
-                is hidden by default but revealed when the user
-              </Box>
-            </Collapse>
+          <Td p={0}>
+            <SubAccordion />
           </Td>
+          <Td>567.80</Td>
+          <Td>₹ 2986792</Td>
+          <Td></Td>
         </Tr>
-      )}
+      </Collapse>
     </>
   );
 };

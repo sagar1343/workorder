@@ -19,7 +19,7 @@ const TableData = () => {
       border='2px'
       borderColor='#F7FAFC'
     >
-      <Table>
+      <Table size='md'>
         <Thead>
           <Tr bgColor={'#90CDF4'}>
             <Th>
